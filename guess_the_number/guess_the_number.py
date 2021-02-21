@@ -37,9 +37,25 @@ def check_the_guess(guessed_number, number_to_guess, attempts_left):
             print(f"\n\tAttempts left: {attempts_left} ...")
             return True
 
+        
+def create_table(statistics):
+    """ print to the console a table that provides the current game statistics """
+    a = statistics["wins"] + statistics["losses"]
+    b = statistics["wins"]
+    c = statistics["losses"]
+    d = statistics["easy modus"]
+    e = statistics["hard modus"]
+    f = statistics["average_guesses_to_win"]
 
-def play_the_game():
-    """ implement the procedural structure resp. the functional logic of the game """
+    print("+-------+------+------+------+--------+-------------------------+")
+    print("| Games | Easy | Hard | Wins | Losses | average: guesses to win |")
+    print("|-------|------|------|------|--------|-------------------------|")
+    print(f"| {a:3}   | {d:3}  | {e:3}  | {b:3}  | {c:3}    | {f:3}                     |")
+    print("+-------+------+------+------+--------+-------------------------+")
+
+
+def new_game(statistics):
+    """ implement the procedural structure / the functional logic of the game """
 
     # Logo + Introduction
     print(logo)
@@ -51,8 +67,7 @@ def play_the_game():
 
     # Choice of the modus
     print("\nPlease choose your preferred level of difficulty first!")
-    attempts = choose_modus()[0]
-    modus = choose_modus()[1]
+    attempts, modus = choose_modus()
 
     print("--------------------------------------")
     print(f"\nThank you! You have decided to choose the '{modus}' of the game.")
@@ -63,6 +78,7 @@ def play_the_game():
     numbers_guessed = []
     attempts_left = attempts
     
+    # 'game loop'
     game_over = False
     while not game_over:
     
@@ -88,11 +104,20 @@ def play_the_game():
         print("Too bad! You didn't make it!")
         print(f"The number to be guessed was {number_to_guess}, you have exhausted all your {attempts} attempts.")
         print(loser)
+        statistics["losses"] += 1
     else:
         print("Congratulations! You've got the number!")
         print(f"The number to be guessed was {number_to_guess}, you needed {attempts - attempts_left} attempt/s.")
         print(winner)
+        statistics["wins"] += 1
+        statistics["total_guesses_to_win"] += (attempts - attempts_left)
+        statistics["average_guesses_to_win"] = round(statistics["total_guesses_to_win"] / statistics["wins"])
 
+    # Statistics (nr. of games played, games won >< games lost, nr. of attempts needed)
+    statistics[modus] += 1
+    create_table(statistics)
+    print()
+    
     # Restart - or quit
     confirmed = False
     while not confirmed:
@@ -102,12 +127,32 @@ def play_the_game():
             # clear()                # if using repl.it
             # printf '\33c\e[3J'     # if using MacOS X
             os.system('cls')         # if using Windows
-            play_the_game()
+            new_game(statistics)
         elif player_choice.lower() == 'no' or player_choice.lower() == 'n':
             print("Goodbye!")
             confirmed = True
         else:
             print("Invalid input! -->")
 
+            
+def play():
+    """ clear the screen, initialize a statistics dictionary, call the method 'new_game()'
+        which actually controls the game flow """
 
-play_the_game()
+    #clear()               # if using repl.it
+    #printf '\33c\e[3J'    # if using MacOS X
+    os.system('cls')       # if using Windows
+
+    statistics = {
+        "wins": 0,
+        "losses": 0,
+        "easy modus": 0,
+        "hard modus": 0,
+        "total_guesses_to_win": 0,
+        "average_guesses_to_win": 0
+    }
+
+    new_game(statistics)
+
+
+play()
