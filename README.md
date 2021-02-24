@@ -1,6 +1,6 @@
 # About
 Collection of a colourful bouquet of programs created while learning Python (--> level: beginner / intermediate).  
-(still *in statu nascendi*)
+(*in statu nascendi*)
 
 # Project
 (information to be added soon)
