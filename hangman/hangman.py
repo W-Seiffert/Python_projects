@@ -124,7 +124,7 @@ def get_players():
           f"        {word_guesser} the first to assume the role of the guesser.")
     print("   -------------------------------------------------------")
 
-    # return the players dictionary as well as the player who will start
+    # return the players dictionary as well as the players who will start
     return players, word_setter, word_guesser
 
 
