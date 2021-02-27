@@ -6,9 +6,11 @@ Collection of a colourful bouquet of programs created while learning Python (-->
 (information to be added soon)
 
 # Overview of the uploaded folders/files
-- **Guess_the_number**  
+- **caesar_cipher**  
+(Information follows shortly)
+- **guess_the_number**  
 (information follows shortly)
-- **Hangman**  
+- **hangman**  
 (information follows shortly)
 - **Space Invaders**  
 (information follows shortly)
