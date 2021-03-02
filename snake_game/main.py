@@ -78,7 +78,7 @@ def play():
         # move the snake one step
         snake.move()
 
-        # if the food appearing is a turtle, move it towards the right margin
+        # if the food appearing is a turtle, move it towards the margin
         if food.variant == 4:
             food.speed("slow")
             food.forward(3)
