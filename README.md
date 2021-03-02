@@ -12,6 +12,8 @@ Collection of a colourful bouquet of programs created while learning Python (-->
 (information follows shortly)
 - **hangman**  
 (information follows shortly)
+- **snake_game**  
+(information follows shortly)
 - **Space Invaders**  
 (information follows shortly)
 - **MySQL DB - First Steps**  
