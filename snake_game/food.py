@@ -16,23 +16,19 @@ class Food(Turtle):
     def refresh(self):
         self.variant = random.randint(1, 5)
         if self.variant == 1:
-            self.shape("circle")
-            self.color("yellow")
-            self.shapesize(stretch_len=1, stretch_wid=0.4)
+            self.shape("banana.GIF")
         elif self.variant == 2:
             self.shape("circle")
             self.color("red")
             self.shapesize(stretch_len=1, stretch_wid=1)
         elif self.variant == 3:
-            self.shape("circle")
-            self.color("blue")
-            self.shapesize(stretch_len=0.5, stretch_wid=0.5)
+            self.shape("plum.GIF")
         elif self.variant == 4:
             self.shape("turtle")
             self.color("green")
             self.shapesize(stretch_len=1, stretch_wid=1)
         elif self.variant == 5:
-            self.shape("diamond_pic.GIF")
+            self.shape("diamond.GIF")
 
         random_x = random.randint(-280, 280)
         random_y = random.randint(-280, 280)
