@@ -1,9 +1,11 @@
 """
 Feb 2021
 @ Walter Seiffert
-The basic structure of this program has been borrowed from the final project of Day 21
-of Angela Yu's Python Bootcamp, as offered on the learning platform Udemy
-(s. "100 Days of Code - The Complete Python Pro Bootcamp for 2021")
+The structure of this program has essentially been borrowed from the final project 
+of Day 21 of Angela Yu's Python Bootcamp, as offered on the learning platform UDEMY
+(s. "100 Days of Code - The Complete Python Pro Bootcamp for 2021").
+Regarding further resources used for the creation of additional shapes, please read 
+the comments in the file 'new_shapes.py'.
 """
 
 import time
@@ -54,8 +56,10 @@ def play():
     screen.title("My Snake Game")
     screen.tracer(0)
 
-    # add another turtle shape (= used for one of the food variants)    
-    screen.addshape("diamond_pic.GIF")
+    # add further turtle shapes (= used for some food variants)    
+    screen.addshape("diamond.GIF")
+    screen.addshape("banana.GIF")
+    screen.addshape("plum.GIF")
 
     # creating the required objects
     snake = Snake()
