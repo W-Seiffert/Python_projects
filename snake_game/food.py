@@ -6,6 +6,7 @@ DIRECTIONS = (0, 90, 180, 270)
 class Food(Turtle):
 
     def __init__(self):
+        """ constructor of a food object """
         super().__init__()
         self.variant = 1
         self.penup()
@@ -14,6 +15,9 @@ class Food(Turtle):
 
 
     def refresh(self):
+        """ method to make the food object reappear again at a randomly chosen position 
+        in a shape randomly chosen from a set of 5 variants, if it has been collected
+        by the snake """
         self.variant = random.randint(1, 5)
         if self.variant == 1:
             self.shape("banana.GIF")
