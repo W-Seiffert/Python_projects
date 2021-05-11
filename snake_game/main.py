@@ -95,17 +95,17 @@ def play():
             snake.extend()
             scoreboard.increase_score()
 
-        # detect a collision with a wall --> trigger "game over"
+        # detect a collision with a wall --> trigger "reset"
         if snake.head.xcor() > 290 or snake.head.xcor() < -290 or snake.head.ycor() > 290 or snake.head.ycor() < -290:
-            game_is_on = False
-            scoreboard.game_over()
+            scoreboard.reset()
+            snake.reset()
 
         # detect a collision with the snake's tail -
-        # if the head collides with any segment of the tail --> trigger "game over"
+        # if the head collides with any segment of the tail --> trigger "reset"
         for segment in snake.segments[1:]:
             if snake.head.distance(segment) < 10:
-                game_is_on = False
-                scoreboard.game_over()
+                scoreboard.reset()
+                snake.reset()
 
     # prepare the restart of the game
     sketch_restart_button()
