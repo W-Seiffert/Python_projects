@@ -26,6 +26,13 @@ class Snake:
         new_segment.goto(position)
         self.segments.append(new_segment)
 
+    def reset(self):                 # method to initialize the snake again (after a restart of the game)
+        for seg in self.segments:
+            seg.goto(1000, 1000)     # move all segments of the current snake outside the screen
+        self.segments.clear()
+        self.create_snake()
+        self.head = self.segments[0]
+        
     def extend(self):
         self.add_segment(self.segments[-1].position())    # position of the last segment
 
