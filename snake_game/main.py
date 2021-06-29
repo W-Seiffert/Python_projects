@@ -20,9 +20,9 @@ def sketch_restart_button():
     scoreboard class), that is: draw a rectangle and write 'Restart' in it """
     pen = Turtle()
     pen.hideturtle()
-    pen.color("white")
+    pen.color("skyblue")
     pen.penup()
-    pen.goto(-70, -60)
+    pen.goto(-70, -90)
     pen.pendown()
     for _ in range(2):
         pen.forward(140)
@@ -31,7 +31,7 @@ def sketch_restart_button():
         pen.left(90)
 
     pen.penup()
-    pen.goto(-53, -54)
+    pen.goto(-53, -83)
     pen.write("Restart", font=("Courier", 20, "normal"))
 
 
@@ -39,7 +39,7 @@ def button_click(x, y):
     """ when the button is 'clicked', that is: a mouse event is trapped within
     the area of the button object, clear the screen from anything hitherto drawn
     on it and call the function play() again """
-    if -70 < x < 70 and -60 < y < -20:
+    if -70 < x < 70 and -90 < y < -50:
         screen.clearscreen()
         play()
 
@@ -57,9 +57,9 @@ def play():
     screen.tracer(0)
 
     # add further turtle shapes (= used for some food variants)    
-    screen.addshape("diamond.GIF")
     screen.addshape("banana.GIF")
     screen.addshape("plum.GIF")
+    screen.addshape("diamond.GIF")
 
     # creating the required objects
     snake = Snake()
@@ -97,17 +97,35 @@ def play():
 
         # detect a collision with a wall --> trigger "reset"
         if snake.head.xcor() > 290 or snake.head.xcor() < -290 or snake.head.ycor() > 290 or snake.head.ycor() < -290:
-            scoreboard.reset()
-            snake.reset()
+            game_is_on = False
 
         # detect a collision with the snake's tail -
         # if the head collides with any segment of the tail --> trigger "reset"
         for segment in snake.segments[1:]:
             if snake.head.distance(segment) < 10:
-                scoreboard.reset()
-                snake.reset()
+                game_is_on = False
 
     # prepare the restart of the game
+    label_1 = Turtle()
+    label_1.hideturtle()
+    label_1.goto(0, 0)
+    label_1.color("salmon")
+    label_1.write("GAME OVER!", align=ALIGNMENT, font=("Courier", 32, "normal"))
+
+    label_2 = Turtle()
+    label_2.hideturtle()
+    label_2.goto(0, -30)
+    label_2.color("orange")
+    label_2.pendown()
+    if scoreboard.score > scoreboard.high_score:
+        label_2.write("Congrats! You've reached a new high score!", align=ALIGNMENT, font=FONT)
+        time.sleep(2)
+        label_2.clear()
+    label_2.write(f"Last score: {scoreboard.score}", align=ALIGNMENT, font=FONT)
+    time.sleep(3)
+    scoreboard.reset()
+    snake.reset()
+    
     sketch_restart_button()
     screen.onscreenclick(button_click)
     screen.listen()
