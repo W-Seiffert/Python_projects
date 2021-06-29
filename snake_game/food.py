@@ -20,9 +20,7 @@ class Food(Turtle):
         by the snake """
         self.variant = random.randint(1, 5)
         if self.variant == 1:
-            self.shape("circle")
-            self.color("yellow")
-            self.shapesize(stretch_len=1, stretch_wid=0.4)
+            self.shape("banana.GIF")
         elif self.variant == 2:
             self.shape("circle")
             self.color("red")
