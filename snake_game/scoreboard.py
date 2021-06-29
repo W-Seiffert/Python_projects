@@ -38,10 +38,3 @@ class Scoreboard(Turtle):
         self.score += 1
         self.update_scoreboard()
 
-        
-    '''
-    def game_over(self):
-        self.goto(0, 0)
-        self.color("salmon")
-        self.write("GAME OVER!", align=ALIGNMENT, font=("Courier", 28, "normal"))
-    '''
