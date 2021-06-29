@@ -18,21 +18,21 @@ from scoreboard import Scoreboard
 def sketch_restart_button():
     """ sketch a restart button (placed beyond the 'game over' message, cf. the
     scoreboard class), that is: draw a rectangle and write 'Restart' in it """
-    self = Turtle()
-    self.hideturtle()
-    self.color("white")
-    self.penup()
-    self.goto(-70, -60)
-    self.pendown()
+    pen = Turtle()
+    pen.hideturtle()
+    pen.color("white")
+    pen.penup()
+    pen.goto(-70, -60)
+    pen.pendown()
     for _ in range(2):
-        self.forward(140)
-        self.left(90)
-        self.forward(40)
-        self.left(90)
+        pen.forward(140)
+        pen.left(90)
+        pen.forward(40)
+        pen.left(90)
 
-    self.penup()
-    self.goto(-53, -54)
-    self.write("Restart", font=("Courier", 20, "normal"))
+    pen.penup()
+    pen.goto(-53, -54)
+    pen.write("Restart", font=("Courier", 20, "normal"))
 
 
 def button_click(x, y):
