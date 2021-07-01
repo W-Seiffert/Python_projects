@@ -9,7 +9,7 @@ Collection of a colourful bouquet of programs created while learning Python (-->
 - **caesar_cipher**  
 (Information follows shortly)
 - **guess_the_number**  
-(information follows shortly)
+A very simple "number guessing game", probably well known to most beginning programmers as it appears in many courses and tutorials (regarding many programming languages). It is an exercise in the use of variables, the use of conditionals/branches, and the use of functions - but the version presented here demonstrates, as a small bonus, also the embedding of ASCII art fonts.
 - **hangman**  
 (information follows shortly)
 - **snake_game**  
