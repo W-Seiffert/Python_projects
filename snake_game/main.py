@@ -14,6 +14,9 @@ from snake import Snake
 from food import Food
 from scoreboard import Scoreboard
 
+ALIGNMENT = "center"
+FONT = ("Courier", 12, "normal")
+
 
 def sketch_restart_button():
     """ sketch a restart button (placed beyond the 'game over' message, cf. the
