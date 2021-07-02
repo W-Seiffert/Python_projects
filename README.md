@@ -7,7 +7,7 @@ Collection of a colourful bouquet of programs created while learning Python (-->
 
 # Overview of the uploaded folders/files
 - **caesar_cipher**  
-Implementation of a famous encryption algorithm, a simple substitution cipher named after the Roman statesman Iulius Caesar. It demonstrates the use of functions with parameters and of the list index method, as well as the embedding of an ASCII art logo. ("Day 8" of Angela Yu's course *"100 Days of Code - The Complete Python Pro Bootcamp for 2021"*, offered on the learning platform Udemy)
+Implementation of a famous ancient encryption algorithm: the substitution cipher named after the Roman statesman Iulius Caesar. It demonstrates the use of functions with parameters and of the list index method, as well as the embedding of an ASCII art logo. (Inspired by the project of "Day 8" of Angela Yu's course *"100 Days of Code - The Complete Python Pro Bootcamp for 2021"*, as offered on the learning platform Udemy.)
 - **guess_the_number**  
 A very simple "number guessing game", probably known to most beginning programmers as it appears in many courses and tutorials (regarding many programming languages). It is an exercise in the use of variables, the use of conditionals/branches, and the use of functions - but the version presented here includes, as a small bonus, also the embedding of ASCII art fonts.
 - **hangman**  
