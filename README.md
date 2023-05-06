@@ -5,7 +5,12 @@ Collection of a colourful bouquet of programs created while learning Python (-->
 # Project
 (information to be added soon)
 
-# Overview of the uploaded folders/files
+# Overview of uploaded folders/files
+- **blood_alcohol_app**  
+This program allows you to calculate your blood alcohol content (BAC) according to a famous formula developed in the 1920s by the Swede Erik Widmark, professor of Medical 
+Chemistry at the University of Lund.  
+- **bmi_app**  
+This program, the modest output of a standard programming exercise, provides a very basic GUI app designed to calculate the *"body mass index"* (BMI) as it is commonly defined (= the body weight divided by the square of the body height).
 - **caesar_cipher**  
 Implementation of a famous ancient encryption algorithm: the substitution cipher named after the Roman statesman C. Iulius Caesar. It demonstrates the use of functions with parameters and of the list index method, as well as the embedding of an ASCII art logo. (Inspired by the project of "Day 8" of Angela Yu's course *"100 Days of Code - The Complete Python Pro Bootcamp for 2021"*, as offered on the learning platform Udemy.)
 - **guess_the_number**  
