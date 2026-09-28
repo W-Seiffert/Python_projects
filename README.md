@@ -6,6 +6,8 @@ Collection of a colourful bouquet of programs created while learning Python (-->
 (information to be added soon)
 
 # Overview of uploaded folders/files
+- **asteroids**
+This primitive 2D side-scrolling single-screen game was built solving an exercise of the ***Python Programming Mooc 2026*** as provided by the University of Helsinki (Department of Computer Science). The player simply has to move a robot back and forth horizontally and catch as many of the asteroids falling from above as possible. - The program demonstrates first steps in using the **Pygame** module to create the basic structure of a video game.
 - **blood_alcohol_app**  
 This program allows you to calculate your *blood alcohol content* (BAC) based on a famous formula developed in the 1920s by the Swede **Erik Widmark**, professor of Medical Chemistry at the University of Lund. According to the formula, a person's BAC is roughly equal to the quantity of alcohol consumed (in grams) divided by the product of the person's weight and a gender-related constant \(&#x2192; for further details just have a look into the app's Python file). Although research has made progress since Widmark's times, alternative calculation models have been brought up, and Widmark's approach has not remained free of criticism, his formula has held its ground so far for purposes of a rough orientation and appears to be still relevant to forensic alcohol analysis, for example. - The program demonstrates how to build a simple GUI with Tkinter, how to switch between different frames and how to process (i.e. validate / evaluate) user input.  
 - **bmi_app**  
