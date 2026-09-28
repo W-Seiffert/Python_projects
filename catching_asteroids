@@ -1,1 +1,145 @@
+'''
+Created on 27.09.2026
+@author: Walter Seiffert
+Exercise from the "Python Programming MOOC 2026", as provided by the 
+University of Helsinki (Department of Computer Science) 
+< cf. https://programming-26.mooc.fi/, Chapt. 13.4: More Pygame Techniques
+
+CREDITS
+--> background music: cinematic_moog_motion
+"Cinematic Moog Motion" (mp3), provided by tAUREON (01:37)
+s. https://pixabay.com/de/music/search/short/?pagi=2
+--> sound effect: catch_sound
+"Punch or Whack" (mp3), provided by Vladimir (public domain)
+"Robot Blip" (mp3), provided by Marianne Gagnon (license: attribution 3.0)
+s. https://soundbible.com/search.php?q=hit
+'''
+
+
+import pygame
+import random
+
+class Asteroid():
+    def __init__(self):
+        self.img = asteroid
+        self.x = random.randint(0, width - asteroid.get_width())
+        self.y = -asteroid.get_height()
+    
+    def move(self, speed: int):
+        if self.y < height - self.img.get_height():
+            self.y += speed
+
+def move_and_clear_asteroids(asteroids: list):
+    del_indices = []
+    for i in range(len(asteroids)):
+        asteroid = asteroids[i]
+        asteroid_rect = asteroid.img.get_rect(topleft = (asteroid.x, asteroid.y))
+        if asteroid_rect.colliderect(robot_rect):
+            del_indices.append(i)
+            pygame.mixer.Sound.play(catch_sound)
+        else: 
+            if asteroid.y >= height - asteroid.img.get_height():
+                asteroids.clear()
+                return 0
+            else:
+                asteroid.move(speed)
+                screen.blit(asteroid.img, (asteroid.x, asteroid.y))
+
+    for d in del_indices:
+        asteroids.pop(d)
+    
+    return len(del_indices)
+
+
+# MAIN PART OF THE PROGRAM
+pygame.init()
+
+pygame.mixer.music.load("cinematic_moog_motion.mp3")
+pygame.mixer.music.play(-1,0.0)   # -1: play the title "on repeat" (endless loop)
+#catch_sound = pygame.mixer.Sound('punch.mp3')
+catch_sound = pygame.mixer.Sound('robot_blip.mp3')
+
+width = 640
+height = 480
+screen = pygame.display.set_mode((width, height))
+pygame.display.set_caption("Catching Asteroids")
+
+game_font = pygame.font.SysFont("Arial", 24)
+
+robot = pygame.image.load("robot.png")
+robot_x = 0
+robot_y = height - robot.get_height()
+asteroid = pygame.image.load("rock.png")
+speed = 1
+
+to_right = False
+to_left = False
+limit_right = width - robot.get_width()
+limit_left = 0
+
+clock = pygame.time.Clock()
+
+asteroids = []
+delay = 0
+
+points = 0
+top_score = 0
+
+while True:
+    # get a rectangle around the robot sprite, based on its current coordinates
+    robot_rect = robot.get_rect(topleft = (robot_x, robot_y))
+
+    # handle pygame events
+    for event in pygame.event.get():
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_LEFT:
+                to_left = True
+            if event.key == pygame.K_RIGHT:
+                to_right = True
+        if event.type == pygame.KEYUP:
+            if event.key == pygame.K_LEFT:
+                to_left = False
+            if event.key == pygame.K_RIGHT:
+                to_right = False
+
+        if event.type == pygame.QUIT:
+            exit()
+
+    # update robot's position
+    if to_right and robot_x <= limit_right:
+        robot_x += 2
+    if to_left and robot_x >= limit_left:
+        robot_x -= 2
+
+    # create asteroids at a defined rate
+    if delay == 0:
+        asteroids.append(Asteroid())
+        delay = random.randint(20, 120)
+    else:
+        delay -= 1
+
+    # draw screen
+    screen.fill((0,0,0))
+    screen.blit(robot, (robot_x, robot_y))
+    # update points / top score and robot's position, if needed
+    asteroids_caught = move_and_clear_asteroids(asteroids)
+    if not asteroids:
+        if points > top_score:
+            top_score = points
+        points = 0
+        robot_x = 0
+    else:
+        points += asteroids_caught
+    # draw scoreboard ("points")
+    score = game_font.render(f"Points: {points}", True, (255, 0, 0))
+    screen.blit(score, (500, 0))
+    score_record = game_font.render(f"Top Score: {top_score}", True, (0, 255, 0))
+    screen.blit(score_record, (500, 30))
+
+    pygame.display.flip()
+
+    clock.tick(60)
+
+pygame.quit()
+
 
